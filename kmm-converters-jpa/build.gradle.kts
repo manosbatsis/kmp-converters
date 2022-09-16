@@ -17,7 +17,7 @@ java {
     }
     registerFeature("kotlinxDatetimeSupport") {
         usingSourceSet(sourceSets["main"])
-        capability(project.name, "kotlinx-satetime-support", "$kotlinxDatetimeVersion")
+        capability(project.name, "kotlinx-datetime-support", "$kotlinxDatetimeVersion")
     }
     registerFeature("ionspinBignumSupport") {
         usingSourceSet(sourceSets["main"])
@@ -34,11 +34,6 @@ java {
         capability(project.name, "javax-persistence-support", "$javaxPersistenceVersion")
     }
 }
-/*
-
-systemProp.javaxPersistenceVersion=2.2
-systemProp.jakartaPersistenceVersion=2.2.3
-*/
 
 dependencies {
     "jakartaPersistenceSupportImplementation"("jakarta.persistence:jakarta.persistence-api:$jakartaPersistenceVersion")
