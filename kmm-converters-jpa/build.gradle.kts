@@ -13,20 +13,32 @@ val javaxPersistenceVersion by System.getProperties()
 java {
     registerFeature("benasher44UuidSupport") {
         usingSourceSet(sourceSets["main"])
+        capability(project.name, "benasher44-uuid-support", "$uuidVersion")
     }
     registerFeature("kotlinxDatetimeSupport") {
         usingSourceSet(sourceSets["main"])
+        capability(project.name, "kotlinx-satetime-support", "$kotlinxDatetimeVersion")
     }
     registerFeature("ionspinBignumSupport") {
         usingSourceSet(sourceSets["main"])
+        capability(project.name, "ionspin-bgnum-support", "$bignumVersion")
     }
     registerFeature("jakartaPersistenceSupport") {
         usingSourceSet(sourceSets["main"])
+        capability(project.name, "javax-persistence-support", "2.2")
+        capability(project.name, "jakarta-persistence-support", "$jakartaPersistenceVersion")
     }
     registerFeature("javaxPersistenceSupport") {
         usingSourceSet(sourceSets["main"])
+        capability(project.name, "javax-persistence-support", "2.2")
+        capability(project.name, "javax-persistence-support", "$javaxPersistenceVersion")
     }
 }
+/*
+
+systemProp.javaxPersistenceVersion=2.2
+systemProp.jakartaPersistenceVersion=2.2.3
+*/
 
 dependencies {
     "jakartaPersistenceSupportImplementation"("jakarta.persistence:jakarta.persistence-api:$jakartaPersistenceVersion")
