@@ -7,8 +7,8 @@ import java.util.Date
 import java.sql.Timestamp
 import javax.persistence.Converter
 
-class Jsr310JpaConverters {
-    @Converter(autoApply = true)
+class JpaConverter {
+    @Converter(autoApply = false)
     class LocalDateConverter : AttributeConverter<LocalDate?, Date?> {
         override fun convertToDatabaseColumn(date: LocalDate?): Date? {
             return if (date == null) null else LocalDateToDateConverter.convert(date)
@@ -19,7 +19,7 @@ class Jsr310JpaConverters {
         }
     }
 
-    @Converter(autoApply = true)
+    @Converter(autoApply = false)
     class LocalTimeConverter : AttributeConverter<LocalTime?, Date?> {
         override fun convertToDatabaseColumn(time: LocalTime?): Date? {
             return if (time == null) null else LocalTimeToDateConverter.convert(time)
@@ -30,7 +30,7 @@ class Jsr310JpaConverters {
         }
     }
 
-    @Converter(autoApply = true)
+    @Converter(autoApply = false)
     class LocalDateTimeConverter : AttributeConverter<LocalDateTime?, Date?> {
         override fun convertToDatabaseColumn(date: LocalDateTime?): Date? {
             return if (date == null) null else LocalDateTimeToDateConverter.convert(date)
@@ -41,7 +41,7 @@ class Jsr310JpaConverters {
         }
     }
 
-    @Converter(autoApply = true)
+    @Converter(autoApply = false)
     class InstantConverter : AttributeConverter<Instant?, Timestamp?> {
         override fun convertToDatabaseColumn(instant: Instant?): Timestamp? {
             return if (instant == null) null else InstantToTimestampConverter.convert(instant)
@@ -52,7 +52,7 @@ class Jsr310JpaConverters {
         }
     }
 
-    @Converter(autoApply = true)
+    @Converter(autoApply = false)
     class ZoneIdConverter : AttributeConverter<TimeZone?, String?> {
         override fun convertToDatabaseColumn(zoneId: TimeZone?): String? {
             return if (zoneId == null) null else TimeZoneToStringConverter.convert(zoneId)
@@ -62,5 +62,4 @@ class Jsr310JpaConverters {
             return if (zoneId == null) null else StringToTimeZoneConverter.convert(zoneId)
         }
     }
-
 }

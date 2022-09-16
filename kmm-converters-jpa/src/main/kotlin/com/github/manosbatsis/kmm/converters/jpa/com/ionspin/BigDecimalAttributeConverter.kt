@@ -1,11 +1,11 @@
-package com.github.manosbatsis.kmm.converters.jpa
+package com.github.manosbatsis.kmm.converters.jpa.com.ionspin
 
 import java.math.BigDecimal
 import javax.persistence.AttributeConverter
 import com.ionspin.kotlin.bignum.decimal.BigDecimal as KBigDecimal
 import javax.persistence.Converter
 
-@Converter(autoApply = true)
+@Converter(autoApply = false)
 class BigDecimalAttributeConverter : AttributeConverter<KBigDecimal?, BigDecimal?> {
     override fun convertToDatabaseColumn(attribute: KBigDecimal?): BigDecimal? {
         return if (attribute == null) null else BigDecimal(attribute.toString())

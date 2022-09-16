@@ -7,11 +7,7 @@ import java.sql.Timestamp
 import java.util.*
 import kotlin.time.Duration
 
-
 interface OneWayConverter<X, Y> {
-
-    companion object{
-    }
 
     fun convert(source: X): Y
 
@@ -28,13 +24,13 @@ interface OneWayConverter<X, Y> {
             return Date.from(source.toInstant(currentSystemDefault()).toJavaInstant())
         }
     }
-    object DateToLocalDateConverter : OneWayConverter<Date,LocalDate> {
+    object DateToLocalDateConverter : OneWayConverter<Date, LocalDate> {
         override fun convert(source: Date): LocalDate {
             return source.toInstant().toKotlinInstant().toLocalDateTime(currentSystemDefault()).date
         }
     }
 
-    object LocalDateToDateConverter : OneWayConverter<LocalDate,Date> {
+    object LocalDateToDateConverter : OneWayConverter<LocalDate, Date> {
         override fun convert(source: LocalDate): Date {
             return Date.from(source.atStartOfDayIn(currentSystemDefault()).toJavaInstant())
         }
@@ -54,7 +50,7 @@ interface OneWayConverter<X, Y> {
         }
     }
 
-    object DateToInstantConverter : OneWayConverter<Date,Instant> {
+    object DateToInstantConverter : OneWayConverter<Date, Instant> {
         override fun convert(source: Date): Instant {
             return source.toInstant().toKotlinInstant()
         }
@@ -66,67 +62,67 @@ interface OneWayConverter<X, Y> {
         }
     }
 
-    object LocalDateTimeToInstantConverter : OneWayConverter<LocalDateTime,Instant> {
+    object LocalDateTimeToInstantConverter : OneWayConverter<LocalDateTime, Instant> {
         override fun convert(source: LocalDateTime): Instant {
             return source.toInstant(currentSystemDefault())
         }
     }
 
-    object InstantToLocalDateTimeConverter : OneWayConverter<Instant,LocalDateTime> {
+    object InstantToLocalDateTimeConverter : OneWayConverter<Instant, LocalDateTime> {
         override fun convert(source: Instant): LocalDateTime {
             return source.toLocalDateTime(currentSystemDefault())
         }
     }
 
-    object TimeZoneToStringConverter : OneWayConverter<TimeZone,String> {
+    object TimeZoneToStringConverter : OneWayConverter<TimeZone, String> {
         override fun convert(source: TimeZone): String {
             return source.toString()
         }
     }
 
-    object StringToTimeZoneConverter : OneWayConverter<String,TimeZone> {
+    object StringToTimeZoneConverter : OneWayConverter<String, TimeZone> {
         override fun convert(source: String): TimeZone {
             return TimeZone.of(source)
         }
     }
 
-    object DurationToStringConverter : OneWayConverter<Duration,String> {
-        override fun convert(duration: Duration): String {
-            return duration.toString()
+    object DurationToStringConverter : OneWayConverter<Duration, String> {
+        override fun convert(source: Duration): String {
+            return source.toString()
         }
     }
 
-    object StringToDurationConverter : OneWayConverter<String,Duration> {
-        override fun convert(s: String): Duration {
-            return Duration.parse(s)
+    object StringToDurationConverter : OneWayConverter<String, Duration> {
+        override fun convert(source: String): Duration {
+            return Duration.parse(source)
         }
     }
 
-    object DateTimePeriodToStringConverter : OneWayConverter<DateTimePeriod,String> {
-        override fun convert(DateTimePeriod: DateTimePeriod): String {
-            return DateTimePeriod.toString()
+    object DateTimePeriodToStringConverter : OneWayConverter<DateTimePeriod, String> {
+        override fun convert(source: DateTimePeriod): String {
+            return source.toString()
         }
     }
 
-    object StringToDateTimePeriodConverter : OneWayConverter<String,DateTimePeriod> {
-        override fun convert(s: String): DateTimePeriod {
-            return DateTimePeriod.parse(s)
+    object StringToDateTimePeriodConverter : OneWayConverter<String, DateTimePeriod> {
+        override fun convert(source: String): DateTimePeriod {
+            return DateTimePeriod.parse(source)
         }
     }
 
-    object StringToLocalDateConverter : OneWayConverter<String,LocalDate> {
+    object StringToLocalDateConverter : OneWayConverter<String, LocalDate> {
         override fun convert(source: String): LocalDate {
             return LocalDate.parse(source)
         }
     }
 
-    object StringToLocalDateTimeConverter : OneWayConverter<String,LocalDateTime> {
+    object StringToLocalDateTimeConverter : OneWayConverter<String, LocalDateTime> {
         override fun convert(source: String): LocalDateTime {
             return LocalDateTime.parse(source)
         }
     }
 
-    object StringToInstantConverter : OneWayConverter<String,Instant> {
+    object StringToInstantConverter : OneWayConverter<String, Instant> {
         override fun convert(source: String): Instant {
             return Instant.parse(source)
         }
@@ -139,7 +135,7 @@ interface OneWayConverter<X, Y> {
         }
     }
 
-    object InstantToTimestampConverter :  OneWayConverter<Instant, Timestamp> {
+    object InstantToTimestampConverter : OneWayConverter<Instant, Timestamp> {
         override fun convert(source: Instant): Timestamp {
             return Timestamp.from(source.toJavaInstant())
         }
