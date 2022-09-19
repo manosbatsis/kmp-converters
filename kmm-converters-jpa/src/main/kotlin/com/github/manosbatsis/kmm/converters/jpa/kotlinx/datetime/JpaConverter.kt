@@ -9,7 +9,7 @@ import java.time.ZoneOffset
 import javax.persistence.Converter
 
 class JpaConverter {
-    @Converter(autoApply = false)
+    @Converter(autoApply = true)
     class LocalDateConverter : AttributeConverter<LocalDate?, Date?> {
         override fun convertToDatabaseColumn(attribute: LocalDate?): Date? {
             return if (attribute == null) null else LocalDateToDateConverter.convert(attribute)
@@ -20,7 +20,7 @@ class JpaConverter {
         }
     }
 
-    @Converter(autoApply = false)
+    @Converter(autoApply = true)
     class LocalTimeConverter : AttributeConverter<LocalTime?, Date?> {
         override fun convertToDatabaseColumn(attribute: LocalTime?): Date? {
             return if (attribute == null) null else LocalTimeToDateConverter.convert(attribute)
@@ -31,7 +31,7 @@ class JpaConverter {
         }
     }
 
-    @Converter(autoApply = false)
+    @Converter(autoApply = true)
     class LocalDateTimeConverter : AttributeConverter<LocalDateTime?, Date?> {
         override fun convertToDatabaseColumn(attribute: LocalDateTime?): Date? {
             return if (attribute == null) null else LocalDateTimeToDateConverter.convert(attribute)
@@ -42,7 +42,7 @@ class JpaConverter {
         }
     }
 
-    @Converter(autoApply = false)
+    @Converter(autoApply = true)
     class InstantConverter : AttributeConverter<Instant?, Timestamp?> {
         override fun convertToDatabaseColumn(attribute: Instant?): Timestamp? {
             return if (attribute == null) null else InstantToTimestampConverter.convert(attribute)
@@ -53,7 +53,7 @@ class JpaConverter {
         }
     }
 
-    @Converter(autoApply = false)
+    @Converter(autoApply = true)
     class ZoneIdConverter : AttributeConverter<TimeZone?, String?> {
         override fun convertToDatabaseColumn(attribute: TimeZone?): String? {
             return if (attribute == null) null else TimeZoneToStringConverter.convert(attribute)
@@ -64,7 +64,7 @@ class JpaConverter {
         }
     }
 
-    @Converter(autoApply = false)
+    @Converter(autoApply = true)
     class MonthConverter : AttributeConverter<Month?, Short?> {
         override fun convertToDatabaseColumn(attribute: Month?): Short? {
             return attribute?.value?.toShort()
@@ -75,7 +75,7 @@ class JpaConverter {
         }
     }
 
-    @Converter(autoApply = false)
+    @Converter(autoApply = true)
     class DayOfWeekConverter : AttributeConverter<DayOfWeek?, Short?> {
         override fun convertToDatabaseColumn(attribute: DayOfWeek?): Short? {
             return attribute?.value?.toShort()
@@ -86,7 +86,7 @@ class JpaConverter {
         }
     }
 
-    @Converter(autoApply = false)
+    @Converter(autoApply = true)
     class DateTimePeriodConverter : AttributeConverter<DateTimePeriod?, String?> {
         override fun convertToDatabaseColumn(attribute: DateTimePeriod?): String? {
             return attribute?.toString()
@@ -97,7 +97,7 @@ class JpaConverter {
         }
     }
 
-    @Converter(autoApply = false)
+    @Converter(autoApply = true)
     class DatePeriodConverter : AttributeConverter<DatePeriod?, String?> {
         override fun convertToDatabaseColumn(attribute: DatePeriod?): String? {
             return attribute?.toString()
@@ -108,7 +108,7 @@ class JpaConverter {
         }
     }
 
-    @Converter(autoApply = false)
+    @Converter(autoApply = true)
     class UtcOffsetConverter : AttributeConverter<UtcOffset?, Int?> {
         override fun convertToDatabaseColumn(attribute: UtcOffset?): Int? {
             return attribute?.totalSeconds
