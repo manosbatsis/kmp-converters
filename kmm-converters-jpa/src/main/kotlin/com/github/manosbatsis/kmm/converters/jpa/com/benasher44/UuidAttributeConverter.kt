@@ -5,7 +5,7 @@ import java.util.*
 import javax.persistence.AttributeConverter
 import javax.persistence.Converter
 
-@Converter(autoApply = false)
+@Converter(autoApply = true)
 class UuidAttributeConverter : AttributeConverter<Uuid?, UUID?> {
     override fun convertToDatabaseColumn(attribute: Uuid?): UUID? {
         return if (attribute == null) null else UUID.fromString(attribute.toString())

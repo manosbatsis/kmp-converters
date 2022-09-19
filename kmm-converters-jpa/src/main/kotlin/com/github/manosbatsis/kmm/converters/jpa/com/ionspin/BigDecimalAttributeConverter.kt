@@ -5,7 +5,7 @@ import javax.persistence.AttributeConverter
 import com.ionspin.kotlin.bignum.decimal.BigDecimal as KBigDecimal
 import javax.persistence.Converter
 
-@Converter(autoApply = false)
+@Converter(autoApply = true)
 class BigDecimalAttributeConverter : AttributeConverter<KBigDecimal?, BigDecimal?> {
     override fun convertToDatabaseColumn(attribute: KBigDecimal?): BigDecimal? {
         return if (attribute == null) null else BigDecimal(attribute.toString())
