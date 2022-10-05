@@ -54,7 +54,7 @@ class JpaConverter {
     }
 
     @Converter(autoApply = true)
-    class ZoneIdConverter : AttributeConverter<TimeZone?, String?> {
+    class TimeZoneConverter : AttributeConverter<TimeZone?, String?> {
         override fun convertToDatabaseColumn(attribute: TimeZone?): String? {
             return if (attribute == null) null else TimeZoneToStringConverter.convert(attribute)
         }

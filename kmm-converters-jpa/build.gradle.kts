@@ -36,9 +36,9 @@ java {
 }
 
 dependencies {
-    "jakartaPersistenceSupportImplementation"("jakarta.persistence:jakarta.persistence-api:$jakartaPersistenceVersion")
-    "javaxPersistenceSupportImplementation"("javax.persistence:javax.persistence-api:$javaxPersistenceVersion")
-    "benasher44UuidSupportImplementation"("com.benasher44:uuid:$uuidVersion")
-    "kotlinxDatetimeSupportImplementation"("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinxDatetimeVersion")
-    "ionspinBignumSupportImplementation"("com.ionspin.kotlin:bignum:$bignumVersion")
+    "jakartaPersistenceSupportApi"("jakarta.persistence:jakarta.persistence-api:$jakartaPersistenceVersion")
+    "javaxPersistenceSupportApi"("javax.persistence:javax.persistence-api:$javaxPersistenceVersion")
+    "benasher44UuidSupportApi"("com.benasher44:uuid:$uuidVersion")
+    "kotlinxDatetimeSupportApi"("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinxDatetimeVersion")
+    "ionspinBignumSupportApi"("com.ionspin.kotlin:bignum:$bignumVersion")
 }
