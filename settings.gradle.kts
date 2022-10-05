@@ -2,7 +2,9 @@
 rootProject.name = "kmm-converters"
 
 include(
-    "kmm-converters-jpa"
+    "kmm-converters-jpa",
+    "kmm-converters-springboot-autoconfigure",
+    "kmm-converters-springboot-starter"
 )
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

@@ -10,6 +10,9 @@ complexity:
   active: true
   LongParameterList:
     active: false
+  TooManyFunctions:
+    active: false
+
 
 style:
   active: true

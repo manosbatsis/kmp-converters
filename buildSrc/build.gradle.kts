@@ -13,6 +13,8 @@ val gradleVersionsPlugin = "0.39.0"
 val kotlinDokkaPlugin = "1.7.0"
 val kotlinxKoverPlugin = "0.5.0"
 val useLatestVersionsPlugin = "0.2.18"
+val springBootVersion = "2.7.4"
+val springBootDependencyManagementVersion = "1.0.13.RELEASE"
 
 dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:$kotlinVersion"))
@@ -33,4 +35,8 @@ dependencies {
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:$kotlinDokkaPlugin")
     implementation("org.jetbrains.kotlinx:kover:$kotlinxKoverPlugin")
     implementation("se.patrikerdes:gradle-use-latest-versions-plugin:$useLatestVersionsPlugin")
+
+    implementation(platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}"))
+    implementation("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    implementation("io.spring.gradle:dependency-management-plugin:${springBootDependencyManagementVersion}")
 }
