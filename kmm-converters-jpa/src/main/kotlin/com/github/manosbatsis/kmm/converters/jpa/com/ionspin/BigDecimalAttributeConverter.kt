@@ -8,10 +8,10 @@ import javax.persistence.Converter
 @Converter(autoApply = true)
 class BigDecimalAttributeConverter : AttributeConverter<KBigDecimal?, BigDecimal?> {
     override fun convertToDatabaseColumn(attribute: KBigDecimal?): BigDecimal? {
-        return if (attribute == null) null else BigDecimal(attribute.toString())
+        return if (attribute == null) null else BigDecimal(attribute.toStringExpanded())
     }
 
     override fun convertToEntityAttribute(dbData: BigDecimal?): KBigDecimal? {
-        return if (dbData == null) null else KBigDecimal.parseString(dbData.toString())
+        return if (dbData == null) null else KBigDecimal.parseString(dbData.toPlainString())
     }
 }
