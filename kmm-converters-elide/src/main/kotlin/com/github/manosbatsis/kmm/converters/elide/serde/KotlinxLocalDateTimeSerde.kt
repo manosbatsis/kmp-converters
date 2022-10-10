@@ -6,11 +6,11 @@ import kotlinx.datetime.LocalDateTime
 
 @ElideTypeConverter(type = LocalDateTime::class, name = "KotlinxLocalDateTime")
 class KotlinxLocalDateTimeSerde : Serde<String?, LocalDateTime?> {
-  override fun deserialize(value: String?): LocalDateTime? {
-    return if (value == null) null else LocalDateTime.parse(value)
-  }
+    override fun deserialize(value: String?): LocalDateTime? {
+        return if (value == null) null else LocalDateTime.parse(value)
+    }
 
-  override fun serialize(value: LocalDateTime?): String? {
-    return value?.toString()
-  }
+    override fun serialize(value: LocalDateTime?): String? {
+        return value?.toString()
+    }
 }

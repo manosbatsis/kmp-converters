@@ -6,11 +6,11 @@ import kotlinx.datetime.Month
 
 @ElideTypeConverter(type = Month::class, name = "KotlinxMonth")
 class KotlinxMonthSerde : Serde<Short?, Month?> {
-  override fun deserialize(value: Short?): Month? {
-    return if (value == null) null else Month.of(value.toInt())
-  }
+    override fun deserialize(value: Short?): Month? {
+        return if (value == null) null else Month.of(value.toInt())
+    }
 
-  override fun serialize(value: Month?): Short? {
-    return value?.value?.toShort()
-  }
+    override fun serialize(value: Month?): Short? {
+        return value?.value?.toShort()
+    }
 }

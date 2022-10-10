@@ -15,5 +15,5 @@ val elideVersion by System.getProperties()
 dependencies {
     api(project(":kmm-converters-elide-autoconfigure"))
     implementation(project(":kmm-converters-springboot-starter"))
-    implementation("com.yahoo.elide.elide-spring-boot-starter:$elideVersion")
+    implementation("com.yahoo.elide:elide-spring-boot-starter:$elideVersion")
 }

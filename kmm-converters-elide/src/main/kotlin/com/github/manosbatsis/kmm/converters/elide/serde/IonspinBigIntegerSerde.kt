@@ -7,11 +7,11 @@ import com.ionspin.kotlin.bignum.integer.BigInteger as KBigInteger
 
 @ElideTypeConverter(type = KBigInteger::class, name = "IonspinBigInteger")
 class IonspinBigIntegerSerde : Serde<BigInteger?, KBigInteger?> {
-  override fun deserialize(value: BigInteger?): KBigInteger? {
-    return if (value == null) null else KBigInteger.parseString(value.toString())
-  }
+    override fun deserialize(value: BigInteger?): KBigInteger? {
+        return if (value == null) null else KBigInteger.parseString(value.toString())
+    }
 
-  override fun serialize(value: KBigInteger?): BigInteger? {
-    return BigInteger(value.toString())
-  }
+    override fun serialize(value: KBigInteger?): BigInteger? {
+        return BigInteger(value.toString())
+    }
 }
