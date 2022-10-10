@@ -15,35 +15,9 @@ val bignumVersion by System.getProperties()
 val uuidVersion by System.getProperties()
 
 val jakartaPersistenceVersion by System.getProperties()
-val javaxPersistenceVersion by System.getProperties()
 val springBootVersion: String by System.getProperties()
 
-java {
-    registerFeature("jakartaPersistenceSupport") {
-        usingSourceSet(sourceSets["main"])
-        capability("${project.group}", project.name + "-javax-persistence-support", "2.2")
-    }
-    registerFeature("javaxPersistenceSupport") {
-        usingSourceSet(sourceSets["main"])
-        capability("${project.group}", project.name + "-jakarta-persistence-support", "$jakartaPersistenceVersion")
-    }
-}
-
 dependencies {
+    api(project(":kmm-converters-jpa"))
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion")
-
-    implementation("com.benasher44:uuid:$uuidVersion")
-    implementation("com.ionspin.kotlin:bignum:$bignumVersion")
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinxDatetimeVersion")
-
-    "jakartaPersistenceSupportImplementation"(project(":kmm-converters-jpa")) {
-        capabilities {
-            requireCapability("$group:kmm-converters-jpa-jakarta-persistence-support")
-        }
-    }
-    "javaxPersistenceSupportImplementation"(project(":kmm-converters-jpa")) {
-        capabilities {
-            requireCapability("$group:kmm-converters-jpa-javax-persistence-support")
-        }
-    }
 }
