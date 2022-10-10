@@ -1,13 +1,13 @@
 
-rootProject.name = "kmm-converters"
+rootProject.name = "kmp-converters"
 
 include(
-    "kmm-converters-elide-autoconfigure",
-    "kmm-converters-elide-starter",
-    "kmm-converters-elide",
-    "kmm-converters-jpa",
-    "kmm-converters-springboot-autoconfigure",
-    "kmm-converters-springboot-starter"
+    "kmp-converters-elide-autoconfigure",
+    "kmp-converters-elide-starter",
+    "kmp-converters-elide",
+    "kmp-converters-jpa",
+    "kmp-converters-springboot-autoconfigure",
+    "kmp-converters-springboot-starter"
 )
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
