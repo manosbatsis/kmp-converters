@@ -30,12 +30,14 @@ implementation("com.github.manosbatsis.kmp.converters:kmp-converters-jpa:$kmpCon
 The converters can be found in the `com.github.manosbatsis.kmp.converters.jpa`
 [package](https://github.com/manosbatsis/kmp-converters/tree/master/kmp-converters-jpa/src/main/kotlin/com/github/manosbatsis/kmp/converters/jpa).
 
-Note that JPA does not support conversion of `@Id` annotated members. If you need to use one of the supported KMP types
-as an identifier, you can work around the JPA spec limitation by:
+### JPA Identifiers
 
-- Wrapping the converted type within an `Embeddable` type
-- Use the wrapper as the id type
-- Annotate the id `@EmbeddedId`
+Note that JPA does not apply Attribute Converters on `@Id` annotated members. If you need to use one of the supported KMP types
+as an identifier, you can work around the JPA spec limitation in three steps:
+
+1. Wrap the converted type within an `Embeddable` type
+2. Use the wrapper as the id type
+3. Annotate the id `@EmbeddedId`
 
 For example, suppose you want to use `com.benasher44.uuid.Uuid` as an identifier:
 
@@ -48,6 +50,7 @@ class UuidId {
 }
 
 // In your entity
+@Entity
 class MyEntity(
     @EmbeddedId
     private var pk: UuidId? = null
