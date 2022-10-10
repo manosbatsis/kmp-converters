@@ -1,2 +1,0 @@
-
-# kmm-converters JPA

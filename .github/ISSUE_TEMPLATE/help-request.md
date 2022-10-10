@@ -1,6 +1,6 @@
 ---
 name: Help request
-about: Ask a question about how to use kmm-converters.
+about: Ask a question about how to use kmp-converters.
 title: "[QUESTION] "
 labels: question
 assignees: manosbatsis

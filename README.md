@@ -1,2 +1,82 @@
-# kmm-converters
-Converters for Kotlin Multiplatform types
+# Kotlin Multiplatform Converters
+
+Support common KMP types in popular JVM frameworks or APIs
+like JPA, Spring Boot amd Elide.
+
+Supported KMP libraries:
+
+- [benasher44/uuid](https://github.com/benasher44/uuid)
+- [ionspin/kotlin-multiplatform-bignum](https://github.com/ionspin/kotlin-multiplatform-bignum)
+- [Kotlin/kotlinx-datetime](https://github.com/Kotlin/kotlinx-datetime)
+
+## Gradle Setup
+
+Add the following repositories:
+
+```kotlin
+maven("https://oss.sonatype.org/content/repositories/releases/")
+// For snapshots, optional
+maven("https://oss.sonatype.org/content/repositories/snapshots/")
+```
+
+## For Plain JPA
+
+The following Gradle dependency adds [JPA Attribute Converters](https://jakarta.ee/specifications/persistence/2.2/apidocs/javax/persistence/attributeconverter) for supported KMP types:
+
+```kotlin
+implementation("com.github.manosbatsis.kmp.converters:kmp-converters-jpa:$kmpConvertersVersion")
+```
+
+The converters can be found in the `com.github.manosbatsis.kmp.converters.jpa`
+[package](https://github.com/manosbatsis/kmp-converters/tree/master/kmp-converters-jpa/src/main/kotlin/com/github/manosbatsis/kmp/converters/jpa).
+
+Note that JPA does not support conversion of `@Id` annotated members. If you need to use one of the supported KMP types
+as an identifier, you can work around the JPA spec limitation by:
+
+- Wrapping the converted type within an `Embeddable` type
+- Use the wrapper as the id type
+- Annotate the id `@EmbeddedId`
+
+For example, suppose you want to use `com.benasher44.uuid.Uuid` as an identifier:
+
+```kotlin
+@Embeddable
+class UuidId {
+    @Column(name = "ID", nullable = false)
+    @Convert(converter = UuidAttributeConverter::class)
+    private var id: Uuid? = null
+}
+
+// In your entity
+class MyEntity(
+    @EmbeddedId
+    private var pk: UuidId? = null
+)
+```
+
+## For Spring Boot
+
+The following starter configures the JPA Attribute Converters described above:
+
+```kotlin
+implementation("com.github.manosbatsis.kmp.converters:kmp-converters-springboot-starter:$kmpConvertersVersion")
+```
+
+## For Elide Standalone
+
+The following dependencies add JPA Attribute Converters (as described above)
+and [Serde](https://elide.io/pages/guide/v5/09-clientapis.html#type-coercion) implementations
+for supported KMP types:
+
+```kotlin
+implementation("com.github.manosbatsis.kmp.converters:kmp-converters-jpa:$kmpConvertersVersion")
+implementation("com.github.manosbatsis.kmp.converters:kmp-converters-elide:$kmpConvertersVersion")
+```
+
+## For Elide with Spring Boot
+
+The following starter configures both JPA and Serde converters described in previous sections:
+
+```kotlin
+implementation("com.github.manosbatsis.kmp.converters:kmp-converters-elide-starter:$kmpConvertersVersion")
+```
