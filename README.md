@@ -9,7 +9,17 @@ Supported KMM libraries:
 - [ionspin/kotlin-multiplatform-bignum](https://github.com/ionspin/kotlin-multiplatform-bignum)
 - [Kotlin/kotlinx-datetime](https://github.com/Kotlin/kotlinx-datetime)
 
-## JPA
+## Gradle Setup
+
+Add the following repositories:
+
+```kotlin
+maven("https://oss.sonatype.org/content/repositories/releases/")
+// For snapshots, optional
+maven("https://oss.sonatype.org/content/repositories/snapshots/")
+```
+
+## For Plain JPA
 
 The following Gradle dependency adds [JPA Attribute Converters](https://jakarta.ee/specifications/persistence/2.2/apidocs/javax/persistence/attributeconverter) for supported KMM types:
 
@@ -44,7 +54,7 @@ class MyEntity(
 )
 ```
 
-## Spring Boot
+## For Spring Boot
 
 The following starter configures the JPA Attribute Converters described above:
 
@@ -52,7 +62,7 @@ The following starter configures the JPA Attribute Converters described above:
 implementation("com.github.manosbatsis.kmm.converters:kmm-converters-springboot-starter:$kmmConvertersVersion")
 ```
 
-## Elide Standalone
+## For Elide Standalone
 
 The following dependencies add JPA Attribute Converters (as described above)
 and [Serde](https://elide.io/pages/guide/v5/09-clientapis.html#type-coercion) implementations
@@ -63,7 +73,7 @@ implementation("com.github.manosbatsis.kmm.converters:kmm-converters-jpa:$kmmCon
 implementation("com.github.manosbatsis.kmm.converters:kmm-converters-elide:$kmmConvertersVersion")
 ```
 
-## Elide with Spring Boot
+## For Elide with Spring Boot
 
 The following starter configures both JPA and Serde converters described in previous sections:
 
