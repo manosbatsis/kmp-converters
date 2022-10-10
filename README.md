@@ -1,7 +1,7 @@
 # Kotlin Multiplatform Converters [![Maven Central](https://img.shields.io/maven-central/v/com.github.manosbatsis.kmp.converters/kmp-converters-springboot-starter.svg)](https://repo1.maven.org/maven2/com/github/manosbatsis/kmp/converters/kmp-converters-springboot-starter)
 
 Support common KMP types in popular JVM frameworks or APIs
-like JPA, Spring Boot amd Elide.
+like JPA, Spring Boot and Elide.
 
 Supported KMP libraries:
 
