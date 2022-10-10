@@ -2,10 +2,11 @@ package com.github.manosbatsis.kmm.converters.jpa.kotlinx.datetime
 
 import com.github.manosbatsis.kmm.converters.jpa.kotlinx.datetime.OneWayConverter.*
 import kotlinx.datetime.*
-import javax.persistence.AttributeConverter
-import java.util.Date
+import kotlinx.datetime.TimeZone
 import java.sql.Timestamp
 import java.time.ZoneOffset
+import java.util.*
+import javax.persistence.AttributeConverter
 import javax.persistence.Converter
 
 class JpaConverter {
