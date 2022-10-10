@@ -7,7 +7,8 @@ include(
     "kmp-converters-elide",
     "kmp-converters-jpa",
     "kmp-converters-springboot-autoconfigure",
-    "kmp-converters-springboot-starter"
+    "kmp-converters-springboot-starter",
+    "kmp-converters-sqldelight",
 )
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
