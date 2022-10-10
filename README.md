@@ -3,7 +3,7 @@
 Playground for support of common KMP types in popular JVM frameworks or APIs, 
 like JPA, Spring Boot, Elide and SQLDelight.
 
-##### This repo is experimental. Use at your own risk.
+##### This repo is experimental and largely untested. Use at your own risk. Contributions welcome.
 
 Supported KMP libraries:
 
