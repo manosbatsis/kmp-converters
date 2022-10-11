@@ -84,3 +84,15 @@ The following starter configures both JPA and Serde converters described in prev
 ```kotlin
 implementation("com.github.manosbatsis.kmp.converters:kmp-converters-elide-starter:$kmpConvertersVersion")
 ```
+
+## For SQLDelight
+
+The following Gradle dependency adds [custom column typess](https://cashapp.github.io/sqldelight/multiplatform_sqlite/types/#custom-column-types) for supported KMP types:
+
+```kotlin
+implementation("com.github.manosbatsis.kmp.converters:kmp-converters-sqldelight:$kmpConvertersVersion")
+```
+
+The converters reside in the `com.github.manosbatsis.kmp.converters.sqldelight` 
+[package](https://github.com/manosbatsis/kmp-converters/tree/master/kmp-converters-sqldelight/src/main/kotlin/com/github/manosbatsis/kmp/converters/sqldelight).
+
