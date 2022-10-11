@@ -14,4 +14,7 @@ dependencies {
     compileOnly("com.benasher44:uuid:$uuidVersion")
     compileOnly("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinxDatetimeVersion")
     compileOnly("com.ionspin.kotlin:bignum:$bignumVersion")
+    testImplementation("com.benasher44:uuid:$uuidVersion")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinxDatetimeVersion")
+    testImplementation("com.ionspin.kotlin:bignum:$bignumVersion")
 }
