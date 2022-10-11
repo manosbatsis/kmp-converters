@@ -20,6 +20,17 @@ nexusPublishing {
     }
 }
 
+subprojects {
+    tasks.withType<Test> {
+        useJUnitPlatform()
+        testLogging {
+            events("passed", "skipped", "failed")
+        }
+        // set JVM arguments for the test JVM(s)
+        jvmArgs("-Xmx2048m")
+    }
+}
+
 tasks.wrapper {
     gradleVersion = "7.5"
     distributionType = Wrapper.DistributionType.ALL

@@ -1,9 +1,9 @@
 package com.github.manosbatsis.kmp.converters.sqldelight
 
 import com.squareup.sqldelight.ColumnAdapter
-import kotlinx.datetime.*
+import kotlinx.datetime.DayOfWeek
 
-object KotlinxDayOfWeekStringColumnAdapter : ColumnAdapter<DayOfWeek, Int> {
-    override fun decode(databaseValue: Int) = DayOfWeek.of(databaseValue)
-    override fun encode(value: DayOfWeek) = value.value
+object KotlinxDayOfWeekStringColumnAdapter : ColumnAdapter<DayOfWeek, String> {
+    override fun decode(databaseValue: String) = DayOfWeek.valueOf(databaseValue)
+    override fun encode(value: DayOfWeek) = value.name
 }
