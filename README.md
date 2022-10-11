@@ -13,10 +13,9 @@ Supported KMP libraries:
 
 ## Gradle Setup
 
-Add the following repositories:
+Releases are available from Maven Central. Snapshots are available from Sonatype's OSS repository:
 
 ```kotlin
-maven("https://oss.sonatype.org/content/repositories/releases/")
 // For snapshots, optional
 maven("https://oss.sonatype.org/content/repositories/snapshots/")
 ```
