@@ -87,7 +87,7 @@ implementation("com.github.manosbatsis.kmp.converters:kmp-converters-elide-start
 
 ## For SQLDelight
 
-The following Gradle dependency adds [custom column typess](https://cashapp.github.io/sqldelight/multiplatform_sqlite/types/#custom-column-types) for supported KMP types:
+The following Gradle dependency adds [custom column types](https://cashapp.github.io/sqldelight/multiplatform_sqlite/types/#custom-column-types) for supported KMP types:
 
 ```kotlin
 implementation("com.github.manosbatsis.kmp.converters:kmp-converters-sqldelight:$kmpConvertersVersion")
