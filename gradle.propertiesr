@@ -1,5 +1,5 @@
 group=com.github.manosbatsis.kmp.converters
-description=Hands-free, RESTful, extensible SCRUD for your Kotlin JPA entities in Spring Boot
+description=Support common KMP types in JPA, Spring Boot, Elide, SQLDelight
 release_version=1.0.0-alpha.6
 
 org.gradle.jvmargs=-Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=1024m
